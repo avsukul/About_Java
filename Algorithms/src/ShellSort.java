@@ -11,20 +11,18 @@ public class ShellSort {
     }
 
     private static int[] shellSort(int[] arr) {
-        for (int gap = arr.length/2; gap > 0; gap /= 2) {
+        for (int gap = arr.length / 2; gap > 0; gap /= 2) {
 
-            for (int i = gap; i < arr.length; i++) {
+            for(int i = gap; i < arr.length; i++) {
 
-                int newElement = arr[i];
-                int j = i;
-
-                while (j >= gap && arr[j - gap] > newElement) {
-
+                int newElement = arr[i]; // 7
+                int j = i; // j = gap
+                while(j >= gap && arr[j - gap] > newElement) { // arr[j - gap] = 20 > 7
+                    arr[j] = arr[j - gap];  // 20 in position gap
+                    j -= gap;   // j - gap = 0
                 }
-
+                arr[j] = newElement;
             }
-
-
         }
         return arr;
     }
