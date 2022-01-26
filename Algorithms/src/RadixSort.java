@@ -3,38 +3,39 @@ public class RadixSort {
 
     public static void main(String[] args) {
 
-        int[] radixArray = { 4725, 4586, 1330, 8792, 1594, 5729 };
+//        int[] radixArray = { 4725, 4586, 1330, 8792, 1594, 5729 };
+        String[] radixArray = { "bcdef", "dbaqc", "abcde", "omadd", "bbbbb"};
 
-        radixSort(radixArray, 10, 4);
+//        radixSort(radixArray, 10, 4);
+        radixSort(radixArray, 26, 5);
 
         for (int i = 0; i < radixArray.length; i++) {
             System.out.println(radixArray[i]);
         }
     }
 
-    public static void radixSort(int[] input, int radix, int width) {
-        for (int i = 0; i < width; i++) {
-            radixSingleSort(input, i, radix);
+    public static void radixSort(String[] input, int radix, int width) {
+        for (int i = width - 1; i >= 0; i--) {   // traverse through value
+            radixSingleSort(input, radix,  i);
         }
     }
 
-    public static void radixSingleSort(int[] input, int position, int radix) {
+    public static void radixSingleSort(String[] input, int radix, int position) {
 
-        int numItems = input.length;
-        int[] countArray = new int[radix];
 
-        for (int value: input) {
-            System.out.println(getDigit(position, value, radix));
-            countArray[getDigit(position, value, radix)]++;
+        int numItems = input.length;    // get num of items in array
+        int[] countArray = new int[radix];  // create an array
+
+        for (String value: input) {
+            countArray[getIndex(position, value)]++; // get each digit in value
         }
-        // Adjust the count array
-        for (int j = 1; j < radix; j++) {
+        for (int j = 1; j < radix; j++) {      // Adjust the count array
             countArray[j] += countArray[j - 1];
         }
 
-        int[] temp = new int[numItems];
+        String[] temp = new String[numItems]; // create a temporary array
         for (int tempIndex = numItems - 1; tempIndex >= 0; tempIndex--) {
-            temp[--countArray[getDigit(position, input[tempIndex], radix)]] =
+            temp[--countArray[getIndex(position, input[tempIndex])]] =
                     input[tempIndex];
         }
 
@@ -45,8 +46,12 @@ public class RadixSort {
     }
 
 
-    public static int getDigit(int position, int value, int radix) {
-        return value / (int) Math.pow(radix, position) % radix;
+    public static int getIndex(int position, String value) {
+        return value.charAt(position) - 'a';
     }
+
+//    public static int getDigit(int position, String value, int radix) {
+//        return value / (int) Math.pow(radix, position) % radix;
+//    }
 
 }
