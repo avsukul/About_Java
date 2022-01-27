@@ -1,3 +1,5 @@
+package algorithms;
+
 public class RadixSort {
 
 
@@ -7,10 +9,14 @@ public class RadixSort {
         String[] radixArray = { "bcdef", "dbaqc", "abcde", "omadd", "bbbbb"};
 
 //        radixSort(radixArray, 10, 4);
-        radixSort(radixArray, 26, 5);
+//        radixSort(radixArray, 26, 5);
 
         for (int i = 0; i < radixArray.length; i++) {
-            System.out.println(radixArray[i]);
+            for (int j = 0; j < radixArray.length; j++) {
+                int v = 'z' - 'a';
+                System.out.println(radixArray[i].charAt(j) - 'a');
+            }
+            System.out.println(" \n");
         }
     }
 

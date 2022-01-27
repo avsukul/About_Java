@@ -1,3 +1,5 @@
+package algorithms;
+
 public class InsertionRecursive {
 
     public static void main(String[] args) {
