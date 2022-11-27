@@ -1,8 +1,9 @@
 package Lists.LinkList;
 
 public class EmployeeNode {
-    private Employee employee;
+
     private EmployeeNode next;  // reference to the next node
+    private Employee employee;
 
     public EmployeeNode(Employee employee) {
         this.employee = employee;
