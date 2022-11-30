@@ -8,4 +8,4 @@ ave as few implementation dependencies as possible. It is a general-purpose prog
  as reflection and runtime code modification) that are typically not available in traditional
  compiled languages. As of 2019, Java was one of the most popular programming languages in use
  according to GitHub,[19][20] particularly for client–server web applications, with a reported
- 9 million developers.[21]
+ 9 million developers.
