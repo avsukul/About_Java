@@ -1,5 +1,9 @@
 package google.week1;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+
 public class StringClass {
 
     /*From Java 9 and forward, The Java VM can optimize strings
@@ -74,5 +78,47 @@ public class StringClass {
         String endStr = "This is a good day to code!";
         endStr.endsWith("This"); // false
         endStr.endsWith("code!"); // true
+
+        // compareTo method.
+        // If string is smaller=negative number, equal=0 and after=positive number.
+        String one   = "abc";
+        String two   = "def";
+        String three = "abc";
+        String four = "ABC";
+
+        // trim method will remove white spaces beginning and end
+        String st = " foo ".trim();  // outputs length of 3
+
+        // repalce method
+        String source   = "123abc";
+        String replaced = source.replace('a', '@'); // outputs 123@bc
+
+
+        // convert numbers to string
+        int i = 97324;
+        String intToStr = String.valueOf(i); // converts to string
+
+        // convert objects to strings
+        Character aChar = new Character('c');
+        String charStr = aChar.toString();
+
+        // charAt method
+        String theStr = "This is a good day to code";
+        char cc = theStr.charAt(10); // char at 'g'
+
+        // getBytes method
+        String strr = "This is a good day to code";
+        byte[] bb = strr.getBytes(); // will use character encoding of the machine
+        byte[] bbb = strr.getBytes(StandardCharsets.UTF_8); // specify character encoding
+
+        System.out.print(isValid0(null));
+
+    }
+
+    public static boolean isValid(String value) {
+        return "123".equals(value);
+    }
+    public static boolean isValid0(String value) {
+        return value.equals("123");
     }
 }

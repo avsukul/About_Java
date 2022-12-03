@@ -273,3 +273,20 @@ class MultiDimensionalArrays {
         }
     }
 }
+
+class Ternary {
+
+    public static void main(String[] args) {
+        int ii = 0;
+        int iii = 1;
+        int i = ii > iii ? 1 : 0;
+
+        // chaining ternary
+        int t = ii > iii ? 15 : ii > iii ? 10 : ii < iii ? 1 : 0;
+        System.out.print(t);
+
+
+    }
+
+
+}
