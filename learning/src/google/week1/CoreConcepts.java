@@ -7,6 +7,8 @@ package google.week1;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CoreConcepts { // type declaration
 
@@ -287,6 +289,43 @@ class Ternary {
 
 
     }
+}
 
+class InstanceOf {
 
+    /*
+    The Java instanceof operator will
+    evaluate to true if you compare an
+    object to the exact class of that object.*/
+    public static void main(String[] args) {
+
+        // instanceof
+        Map<Object, Object> map = new HashMap();
+        boolean mapIsObject = map instanceof Object; // true
+
+        // instance with same class
+        HashMap<Object, Object> map1 = new HashMap();
+        boolean mapIsObject1 = map1 instanceof HashMap; // true
+
+        // superclass
+        Map<Object, Object> map2 = new HashMap();
+        boolean mapIsObject2 = map2 instanceof Object; // true
+
+        //  interface
+        HashMap<Object, Object> map3 = new HashMap();
+        boolean mapIsObject3 = map3 instanceof Map; // true
+
+        // compare against null
+        Map<Object, Object> map4 = null;
+        // false Since null is not an instance of Map
+        boolean mapIsObject4 = map4 instanceof Map;
+
+        // downcasting with instanceof
+        String myObject = "";  // get object from somewhere
+
+        if(myObject instanceof String) {
+            String myString = (String) myObject;
+
+        }
+    }
 }
