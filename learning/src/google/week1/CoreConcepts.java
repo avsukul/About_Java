@@ -12,6 +12,31 @@ import java.util.Map;
 
 public class CoreConcepts { // type declaration
 
+    /*
+    Java Access Modifiers:
+        private
+        package
+        protected
+        public
+
+        The private access modifier means that only code inside
+         the class itself can access this Java field.
+
+        The package access modifier means that only code inside
+        the class itself, or other classes in the same package,
+        can access the field. You don't actually write the package
+         modifier. By leaving out any access modifier,
+        the access modifier defaults to package scope.
+
+        The protected access modifier is like the package modifier,
+        except subclasses of the class can also access the field,
+        even if the subclass is not located in the same package.
+
+        The public access modifier means that the field can be accessed
+        by all classes in your application.
+     */
+
+
    boolean aBoolean = true; // true or false
    char aChar = 'y'; // Unicode characters
    byte aByte = 127; // holds = -128 to 127 ;  8 bit two’s complement
@@ -34,6 +59,11 @@ public class CoreConcepts { // type declaration
     public CoreConcepts() {
         // similar to class initializers
         // but can take parameters.
+        // cannot be inherited
+        // does not have a return type
+        // called with the new keyword
+        // known as a special method
+
     }
 
     public static void main(String[] args) {
