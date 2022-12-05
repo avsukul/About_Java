@@ -78,7 +78,13 @@ public class CoreConcepts { // type declaration
         System.out.println(remainder);
     }
 
-    void foo() {
+    /*
+    * The value of a final parameter cannot be changed.
+    *  That is, if the parameter is a reference to an object,
+    *  the reference cannot be changed, but values inside
+    * the object can still be changed.
+    * */
+    void foo( final int a) {
         // instance method.
     }
 
