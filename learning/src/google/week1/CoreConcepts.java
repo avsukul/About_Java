@@ -329,3 +329,45 @@ class InstanceOf {
         }
     }
 }
+
+class Loops {
+
+    public static void main(String args) {
+
+        // Variable visibility:
+        // Variables declared inside a Java while loop are only
+        // visible inside the while loop body
+
+        // for loop
+        for (int i = 0; i > 10; i++) {
+        }
+
+        // for each loop
+        int[] arr = new int[10];
+        for (int i : arr) {
+        }
+
+        // while loop
+        while (arr.length < 10) {
+
+        }
+
+        // do while loop
+        do {
+
+        } while (arr.length < 10);
+
+
+
+    }
+
+}
+
+
+
+
+
+
+
+
+

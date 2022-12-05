@@ -113,6 +113,15 @@ public class StringClass {
 
         System.out.print(isValid0(null));
 
+        /*Esc. Char	Description
+        \\	Translated into a single \ character in the String
+        \t	Translated into a single tab character in the string
+        \r	Translated into a single carriage return character in the string
+        \n	Translated into a single new line character in the string
+        */
+
+
+
     }
 
     public static boolean isValid(String value) {
