@@ -356,13 +356,46 @@ class Loops {
         do {
 
         } while (arr.length < 10);
+    }
+}
 
 
+class NestedClass {
+
+    // Terminology: Nested classes are divided into two categories:
+    // non-static and static.
+    // Non-static nested classes are called inner classes.
+    // Nested classes that are declared static are called static nested classes.
+
+    public static void main(String[] args) {
+        // accessing nested classes
+        NestedClass nested = new NestedClass();
+        MyInnerClass inner = nested.new MyInnerClass();
+        inner.foo();
+
+        // accessing static nested classes
+        MyStaticNestedClass staticNested = new MyStaticNestedClass();
+        staticNested.foo();
 
     }
 
-}
+    /**
+     * nested inner-class
+     */
+    class MyInnerClass {
 
+        void foo() {System.out.println("inner");}
+    }
+
+    /**
+     * static nested class
+     */
+    static class MyStaticNestedClass {
+
+        void foo() {System.out.println("static nested");}
+    }
+
+}
 
 
 
