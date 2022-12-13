@@ -402,6 +402,9 @@ class NestedClass {
     // non-static and static.
     // Non-static nested classes are called inner classes.
     // Nested classes that are declared static are called static nested classes.
+    // A Nested class follows the same rules for inheritance as non-nested classes.
+
+    private String text = "I am private!";
 
     public static void main(String[] args) {
         // accessing nested classes
@@ -420,7 +423,15 @@ class NestedClass {
      */
     class MyInnerClass {
 
-        void foo() {System.out.println("inner");}
+        // inner classes can have ONLY final static fields.
+        // static methods are not allowed in inner class.
+        static final String s = "";
+        void foo() {
+            System.out.println("inner");
+
+            // Has access to the fields of the enclosing class.
+            System.out.println(text);
+        }
     }
 
     /**
@@ -428,7 +439,12 @@ class NestedClass {
      */
     static class MyStaticNestedClass {
 
-        void foo() {System.out.println("static nested");}
+        static void foo() { // static is allowed.
+            System.out.println("static nested");
+
+            // Has access to the fields of the enclosing class.
+            System.out.println(new NestedClass().text);
+        }
     }
 
 }
