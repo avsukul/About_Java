@@ -1,4 +1,4 @@
-package src.google.week1;
+package google.week1;
 // this java file is located in this package.
 
 // import statement shows which other files this file is using.
