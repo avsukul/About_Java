@@ -28,38 +28,120 @@ public class Inheritance {
     public static void main(String[] args) {
 
         Car honda = new Honda();
+        honda.setMake("Honda");
         honda.setEngine("v-tech");
-        System.out.println("Honda " + honda.getEngine());
+        honda.setModel("Civic LX");
+        System.out.println(honda);
 
         Car Toyota = new Toyota();
+        Toyota.setMake("Toyota");
         Toyota.setEngine("vvt-i");
-        System.out.println("Toyota " + Toyota.getEngine());
-
-
+        Toyota.setModel("corolla RS");
+        System.out.println(Toyota);
     }
 }
 
 class Car {
+    private String make = null;
     private String engine = null;
-    String getEngine() {
-        return this.engine;
+    private String model = null;
+    String color = "no color";
+
+    @Override
+    public String toString() {
+        return this.make + " " + this.engine + " " + this.model + " " + this.color;
+    }
+
+    void setMake(String make) {
+        this.make = make;
     }
     void setEngine(String e) {
         this.engine = e;
     }
+
+    void setModel(String model) {
+        this.model = model;
+    }
 }
 
 class Honda extends Car {
+
+    String color = "black";
     @Override
     public void setEngine(String e) {
-        super.setEngine(e);
+        super.setEngine(e + " Power!");
     }
 }
 
 class Toyota extends Car {
+    String color = "red";
     @Override
     protected void setEngine(String e) {
-        super.setEngine(e);
+        super.setEngine(e + " Performance tuned!");
     }
 }
 
+class UpDownCasting {
+
+    public static void main(String[] args) {
+        // up casting.
+        Car hon = new Honda();
+        Car toy = new Toyota();
+        System.out.println(hon.color); // calls the super-class.
+        System.out.println(toy.color);
+
+        // down casting.
+        Honda h = (Honda) hon;
+        Toyota t = (Toyota) toy;
+
+        System.out.println(h.color); // calls the subclass.
+        System.out.println(t.color);
+
+    }
+}
+
+class FieldsInheritance {
+
+    public static void main(String[] args) {
+        Car car = new FieldsInheritance().new Car();
+
+        car.setLicensePlate("123");
+        car.updateLicensePlate("abc");
+
+        System.out.println("license plate: "
+                + car.getLicensePlate());
+    }
+
+    public class Vehicle {
+
+        String licensePlate = null; // 123
+
+        public void setLicensePlate(String licensePlate) {
+            this.licensePlate = licensePlate;
+        }
+
+        public String getLicensePlate() {
+            return licensePlate;
+        }
+    }
+
+    public class Car extends Vehicle {
+
+        protected String licensePlate = null;   // abc
+
+        @Override
+        public void setLicensePlate(String license) {
+            super.setLicensePlate(license);
+        }
+
+        @Override
+        public String getLicensePlate() {
+            return super.getLicensePlate();
+        }
+
+        public void updateLicensePlate(String license){
+            this.licensePlate = license;
+        }
+    }
+
+}
