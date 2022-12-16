@@ -446,10 +446,79 @@ class NestedClass {
             System.out.println(new NestedClass().text);
         }
     }
-
 }
 
+final class UsingFinalKeyword {
+    /** Final classes:
+        * CANNOT be extended / inherited from parent.
+        * Static methods CANNOT be accessed.
+        * Can override instance methods.
+        * Can instantiate class.
+        * Can change the fields of the class.
+        *
+        * A good reason to make a class final is to set limitations
+        * so that to prevent unpredictable behavior. ex String.class
+    */
 
+    /**
+    * Final Fields:
+            * For STATIC final fields, this means that we can initialize them:
+            * upon declaration
+            * initializer block
+     */
+    static final int i = 0;
+
+    /**
+        * For INSTANCE final fields, this means that we can initialize them:
+        * upon declaration in  the instance initializer block
+        * in the constructor*/
+    static final Object obj = new Object();
+
+
+    /**
+     * Constructor CANNOT be made final b/c they are not inherited
+     * and CANNOT be overridden.
+     */
+    UsingFinalKeyword() {
+
+    }
+
+    /** Final Methods:
+        * CANNOT be overridden in subclasses.
+        *
+        * A good reason to make a method final is if some
+        * methods are called by other methods, by making the called
+        * methods final would prevent overriding; thus, preventing
+        * the affect of work of the callers.
+        * Methods in constructors should be declared as final for the
+        * above reason.
+        */
+    public final void foo(final Object o) {  //Final Arguments: A final argument can’t be changed inside a method.
+        /*
+        * Final primitive Variables:
+        * CANNOT be reassigned.
+        * Once a final variable is initialized, it can’t be altered.
+        */
+        final int x = 1;
+
+        /*
+        * Final reference Variables:
+        * CANNOT be reassigned.
+        * Object is NOT immutable as we can change the properties
+        * of this object freely.
+        */
+        final Object Foo = new Object();
+    }
+}
+
+abstract class AbstractClasses {
+    /*
+    A Java abstract class is a class which cannot be instantiated,
+    meaning you cannot create new instances of an abstract class.
+    The purpose of an abstract class is to function as a base for
+    subclasses.
+    */
+}
 
 
 
