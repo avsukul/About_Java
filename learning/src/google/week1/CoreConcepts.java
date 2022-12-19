@@ -517,11 +517,34 @@ abstract class AbstractClasses {
     meaning you cannot create new instances of an abstract class.
     The purpose of an abstract class is to function as a base for
     subclasses.
+
+    The purpose of abstract classes is to function as base classes which can
+    be extended by subclasses to create a full implementation. For instance,
+    imagine that a certain process requires 3 steps:
+
+    The step before the action.
+    The action.
+    The step after the action.
+
+    If the steps before and after the action are always the same,
+    the 3-step process could be implemented in an abstract superclass
+    with this Java code:
     */
+
+    /**
+     * You declare a method abstract by adding the abstract keyword.
+     * An abstract method has no implementation.
+     * Subclasses of an abstract class must implement (override) all
+     * abstract methods of its abstract superclass.
+     *
+     * <p>Note:
+     * The only time a subclass of an abstract class is not forced to
+     * implement all abstract methods of its superclass, is if the subclass
+     * is also an abstract class.
+     */
+    public abstract void abstractMethod();
+
 }
-
-
-
 
 
 
