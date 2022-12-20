@@ -578,3 +578,60 @@ class AbstractClasses {
         processor.processURL(new URL("http://www.oracle.com/"));
     }
 }
+
+
+interface MyInterface {
+    /*
+     Java interface can only contain method signatures and fields.
+
+     You can use default implementations of a method in a Java
+     interface, to make the implementation of the interface easier
+     for classes implementing the interface.
+
+     You can use interfaces in Java as a way to achieve polymorphism.
+
+     A Java interface can be declared public or package scope.
+
+     The following Java types can implement interfaces:
+        Java Class
+        Java Abstract Class
+        Java Nested Class
+        Java Enum
+        Java Dynamic Proxy
+
+    * */
+
+    // All variables in an interface are implicitly public, static and final.
+    int i = 10; // public/(default) or package scope.
+
+    void foo(); // All methods in an interface are public.
+
+    class A implements MyInterface {
+
+        public static void main(String[] args) {
+            System.out.println(MyInterface.i); // access is like static variable in a class.
+
+            //You cannot create instances of a Java interface by itself.
+            //You create an instance of some class that implements the interface,
+            //and reference that instance as an instance of the interface.
+            MyInterface a = new A();
+            a.foo(); // calls A foo.
+            MyInterface b = new B();
+            b.foo(); // calls B foo.
+        }
+
+        @Override
+        public void foo() {
+            System.out.println("is foo! from test");
+        }
+    }
+
+    class B implements MyInterface {
+
+        @Override
+        public void foo() {
+            System.out.println("is foo! from A");
+        }
+    }
+
+}
