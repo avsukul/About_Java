@@ -5,6 +5,8 @@ package google.week1;
 // only to be used if not in the same package.
 
 
+import java.io.*;
+import java.net.*;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -511,7 +513,9 @@ final class UsingFinalKeyword {
     }
 }
 
-abstract class AbstractClasses {
+class AbstractClasses {
+
+    abstract class ProcessURLBase {
     /*
     A Java abstract class is a class which cannot be instantiated,
     meaning you cannot create new instances of an abstract class.
@@ -531,20 +535,46 @@ abstract class AbstractClasses {
     with this Java code:
     */
 
-    /**
-     * You declare a method abstract by adding the abstract keyword.
-     * An abstract method has no implementation.
-     * Subclasses of an abstract class must implement (override) all
-     * abstract methods of its abstract superclass.
-     *
-     * <p>Note:
-     * The only time a subclass of an abstract class is not forced to
-     * implement all abstract methods of its superclass, is if the subclass
-     * is also an abstract class.
-     */
-    public abstract void abstractMethod();
+        /**
+         * You declare a method abstract by adding the abstract keyword.
+         * An abstract method has no implementation.
+         * Subclasses of an abstract class must implement (override) all
+         * abstract methods of its abstract superclass.
+         *
+         * <p>Note:
+         * The only time a subclass of an abstract class is not forced to
+         * implement all abstract methods of its superclass, is if the subclass
+         * is also an abstract class.
+         */
+        public abstract void processURLData(URL input) throws IOException;
+        void processURL(URL url) throws IOException {
+            try {
+                 processURLData(url);
+            } catch (IOException e) {
+                throw new IOException(e);
+            }
+        }
+    }
 
+    class URLProcessor extends ProcessURLBase {
+
+        @Override
+        public void processURLData(URL input) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(input.openStream()));
+            try {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+            } finally {
+                br.close();
+            }
+        }
+    }
+    public static void main(String[] args) throws IOException {
+        // NOTE: this abstract class example is also an implementation
+        // of the Template method design pattern.
+        URLProcessor processor = new AbstractClasses().new URLProcessor();
+        processor.processURL(new URL("http://www.oracle.com/"));
+    }
 }
-
-
-
