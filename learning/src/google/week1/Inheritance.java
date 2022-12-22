@@ -33,11 +33,11 @@ public class Inheritance {
         honda.setModel("Civic LX");
         System.out.println(honda);
 
-        Car Toyota = new Toyota();
-        Toyota.setMake("Toyota");
-        Toyota.setEngine("vvt-i");
-        Toyota.setModel("corolla RS");
-        System.out.println(Toyota);
+        Car toyota = new Toyota();
+        toyota.setMake("Toyota");
+        toyota.setEngine("vvt-i");
+        toyota.setModel("corolla RS");
+        System.out.println(toyota);
     }
 }
 
@@ -69,6 +69,7 @@ class Honda extends Car {
     String color = "black";
     @Override
     public void setEngine(String e) {
+        System.out.println("set engine for honda " + e);
         super.setEngine(e + " Power!");
     }
 }
@@ -77,6 +78,7 @@ class Toyota extends Car {
     String color = "red";
     @Override
     protected void setEngine(String e) {
+        System.out.println("set engine for toyota " + e);
         super.setEngine(e + " Performance tuned!");
     }
 }
@@ -87,14 +89,15 @@ class UpDownCasting {
         // up casting.
         Car hon = new Honda();
         Car toy = new Toyota();
-        System.out.println(hon.color); // calls the super-class.
+        // calls the super-class.
+        System.out.println(hon.color);
         System.out.println(toy.color);
 
         // down casting.
         Honda h = (Honda) hon;
         Toyota t = (Toyota) toy;
-
-        System.out.println(h.color); // calls the subclass.
+        // calls the subclass.
+        System.out.println(h.color);
         System.out.println(t.color);
 
     }

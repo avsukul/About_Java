@@ -606,6 +606,27 @@ interface MyInterface {
 
     void foo(); // All methods in an interface are public.
 
+    /**
+    *     To alleviate this Java interface evolution problem, Java 8 has added the concept
+    *     of interface default methods to Java interfaces.
+    *
+    *      Classes that implement the interface but which contain no implementation for the default
+    *      interface will then automatically get the default method implementation.
+     *
+     */
+    default void bar() { // Any implementation in a class takes precedence over
+                        // interface default method implementations.
+        // provide implementation.
+    }
+
+    /**
+     * Java interface can have static methods.
+     * Static methods in a Java interface must have implementation.
+     */
+    static void fooPrints(String s){
+        System.out.println(s);
+    }
+
     class A implements MyInterface {
 
         public static void main(String[] args) {
@@ -618,12 +639,16 @@ interface MyInterface {
             a.foo(); // calls A foo.
             MyInterface b = new B();
             b.foo(); // calls B foo.
+            a.bar();
+            // Calling a static method in an interface.
+            MyInterface.fooPrints("print something!");
         }
 
         @Override
         public void foo() {
             System.out.println("is foo! from test");
         }
+
     }
 
     class B implements MyInterface {
@@ -633,5 +658,60 @@ interface MyInterface {
             System.out.println("is foo! from A");
         }
     }
-
 }
+
+interface InterfaceInheritance {
+
+    /*It is possible for a Java interface to inherit from another Java interface.
+      just like classes can inherit from other classes.
+    * */
+    interface A {
+        void foo();
+
+        default void p(String s) {
+            // implement me.
+        }
+    }
+        /**
+         * Unlike classes, interfaces can actually inherit from multiple superinterfaces.
+         * You specify that by listing the names of all interfaces to inherit from, separated by comma.
+         */
+        interface C {
+            default void fooBar() {
+                // implement me.
+            }
+        }
+
+    interface B extends A, C {
+        void bar();
+
+    }
+
+    class T implements B {
+
+        @Override
+        public void foo() {
+
+        }
+
+        @Override
+        public void bar() {
+
+        }
+
+        @Override
+        public void p(String s) {
+            System.out.println("p");
+        }
+
+        @Override
+        public void fooBar() {
+            B.super.fooBar();
+        }
+    }
+    static void main(String[] args) {
+        T t = new InterfaceInheritance.T();
+        t.p("print!");
+    }
+}
+
