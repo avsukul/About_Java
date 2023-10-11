@@ -1,7 +1,7 @@
 package main.week2.princeton_algorithms_part_I;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+//import edu.princeton.cs.algs4.StdIn;
+//import edu.princeton.cs.algs4.StdOut;
 
 public class WeightedQuickUnionUF {
     private int[] parent;   // parent[i] = parent of i
@@ -109,17 +109,17 @@ public class WeightedQuickUnionUF {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args) {
-        int n = StdIn.readInt();
-        WeightedQuickUnionUF uf = new WeightedQuickUnionUF(n);
-        while (!StdIn.isEmpty()) {
-            int p = StdIn.readInt();
-            int q = StdIn.readInt();
-            if (uf.find(p) == uf.find(q)) continue;
-            uf.union(p, q);
-            StdOut.println(p + " " + q);
-        }
-        StdOut.println(uf.count() + " components");
-    }
+//    public static void main(String[] args) {
+//        int n = StdIn.readInt();
+//        WeightedQuickUnionUF uf = new WeightedQuickUnionUF(n);
+//        while (!StdIn.isEmpty()) {
+//            int p = StdIn.readInt();
+//            int q = StdIn.readInt();
+//            if (uf.find(p) == uf.find(q)) continue;
+//            uf.union(p, q);
+//            StdOut.println(p + " " + q);
+//        }
+//        StdOut.println(uf.count() + " components");
+//    }
 
 }
