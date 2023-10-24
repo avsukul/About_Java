@@ -7,7 +7,7 @@ public class FindTheDifference {
 
     public static void main(String[] args) {
         String s = "abcd",
-               t = "abcde";
+               t = "abcd";
 
         char diff = new FindTheDifference().findTheDifference(s, t);
 
